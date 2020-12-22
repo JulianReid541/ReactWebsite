@@ -7,6 +7,7 @@ import Services from '../Common/Services';
 import Portfolio from '../Common/Portfolio';
 import AboutSection from '../Common/AboutSection';
 import Team from '../Common/Team';
+import Contact from '../Pages/Contact';
 
 
 class Home extends Component {
@@ -26,6 +27,7 @@ class Home extends Component {
                 <Portfolio />
                 <AboutSection />
                 <Team />
+                <Contact />
             </div>
         )
     }
