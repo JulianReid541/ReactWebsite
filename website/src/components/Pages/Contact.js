@@ -21,11 +21,7 @@ const fields ={
 }
 
 class Contact extends Component {
-
-    submitForm = (e) => {
-        alert("Form Submitted");
-    }
-    
+ 
     render() {
         return (
             <section className="page-section" id="contact">
@@ -46,7 +42,7 @@ class Contact extends Component {
                                                         value={this.props.values[field.name]}
                                                         name={field.name}
                                                         onChange={this.props.handleChange}
-                                                        onBlur={this.props.handeBlur}
+                                                        onBlur={this.props.handleBlur}
                                                         touched={(this.props.touched[field.name])}
                                                         errors={this.props.errors[field.name]}
                                                     />
@@ -78,7 +74,15 @@ export default withFormik({
         message: '',
     }),
     validationSchema: Yup.object().shape({
-        name: Yup.string().required('You must give us your name.')
+        name: Yup.string().min(3, "Name must be longer than three characters").required('You must give us your name.'),
+        email: Yup.string().email('Must be an email').required('We need your email'),
+        phone: Yup.string()
+                  .min(10, "must be more than 10 characters")
+                  .max(15, "number is too long")
+                  .required("Phone number required"),
+        message: Yup.string().min(1, "required")
+                    .max(500, "you have exceeded charater limit")
+                    .required("message required")
     }),
     handleSubmit: (values, {setSubmitting}) => {
         console.log("VALUES", values);
