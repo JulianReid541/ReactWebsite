@@ -6,7 +6,11 @@ export const login = (email, pass) => {
             console.log("Result", res.data);
             dispatch({
                 type: 'LOGIN',
-                payload: {email, pass}
+                payload: {
+                    email: email,
+                    token: res.data.id,
+                    userId: res.data.userId
+                }
             })
         })
     }
