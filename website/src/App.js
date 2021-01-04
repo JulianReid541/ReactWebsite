@@ -12,14 +12,57 @@ import Portfolio from './components/Common/Portfolio';
 import Team from './components/Common/Team';
 import AdminWrapper from './components/AdminWrapper';
 import Login from './components/Pages/Login';
-import Dashboard from './components/Pages/Admin/Dashboard';
 import LoginWrapper from './components/LoginWrapper';
+
+//Admin Pages
+import Dashboard from './components/Pages/Admin/Dashboard';
+import Users from './components/Pages/Admin/Users';
+import Posts from './components/Pages/Admin/Posts';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Route
+          path='/admin/users'
+          render={props => {
+            return (
+              <div>
+                {this.props.auth.token ?
+                  <AdminWrapper>
+                    <Users />
+                  </AdminWrapper>
+                  :
+                  <LoginWrapper>
+                    <Login />
+                  </LoginWrapper>
+                }
+              </div>
+            )
+          }}
+        />
+
+        <Route
+          path='/admin/posts'
+          render={props => {
+            return (
+              <div>
+                {this.props.auth.token ?
+                  <AdminWrapper>
+                    <Posts />
+                  </AdminWrapper>
+                  :
+                  <LoginWrapper>
+                    <Login />
+                  </LoginWrapper>
+                }
+              </div>
+            )
+          }}
+        />
+
+        <Route
+          exact={true}
           path="/admin"
           render={props => {
             return (
@@ -37,6 +80,7 @@ class App extends Component {
             )
           }}
         />
+
         <Route exact={true} path="/"
           render={props => (
             <PageWrapper>
@@ -45,9 +89,13 @@ class App extends Component {
 
           )}
         />
+
         <Route path="/services" component={Services} />
+
         <Route path="/portfolio" component={Portfolio} />
+
         <Route path="/team" component={Team} />
+
         <Route path="/about"
           render={props => (
             <PageWrapper>
