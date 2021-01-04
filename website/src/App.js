@@ -12,7 +12,7 @@ import Portfolio from './components/Common/Portfolio';
 import Team from './components/Common/Team';
 import AdminWrapper from './components/AdminWrapper';
 import Login from './components/Pages/Login';
-import Dashboard from './components/Pages/Dashboard';
+import Dashboard from './components/Pages/Admin/Dashboard';
 import LoginWrapper from './components/LoginWrapper';
 
 class App extends Component {
