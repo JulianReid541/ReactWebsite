@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Sidebar from './Common/Sidebar';
 
 // Drawer imports
 import Drawer from '@material-ui/core/Drawer';
@@ -114,11 +115,7 @@ class AdminWrapper extends Component {
                         </IconButton>
                     </div>
                     <Divider />
-                    <List>
-                        <ListItem>
-                            Dashboard
-                        </ListItem>
-                    </List>
+                    <Sidebar />
                 </Drawer>
 
                 {this.props.children}
