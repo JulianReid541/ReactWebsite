@@ -21,6 +21,10 @@ const styles = theme => ({
     toolbar: {
         paddingRight: 24
     },
+    appBar: {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`
+    },
     drawerPaper: {
         position: 'relative',
         whiteSpace: 'noWrap',
@@ -34,7 +38,7 @@ class AdminWrapper extends Component {
 
         return(
             <div id="admin-page">
-                <AppBar>
+                <AppBar className={classes.appBar}>
                     <ToolBar className={classes.toolbar}>
                         <IconButton>
                             <MenuIcon />
