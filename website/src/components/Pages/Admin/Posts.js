@@ -17,7 +17,7 @@ const styles = theme => ({
     fab: {
         position: 'fixed',
         bottom: '50px',
-        right: '50px,'
+        right: '50px'
     }
 });
 
