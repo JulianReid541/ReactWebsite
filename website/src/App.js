@@ -43,7 +43,7 @@ class App extends Component {
           }}
         />
 
-        <Route 
+        <Route
           path='/admin/posts/:view/:id'
           exact={true}
           render={props => {
@@ -63,8 +63,27 @@ class App extends Component {
           }}
         />
 
+        <Route
+          path='/admin/posts/add'
+          exact={true}
+          render={props => {
+            return (
+              <div>
+                {this.props.auth.token ?
+                  <AdminWrapper>
+                    <AddPost />
+                  </AdminWrapper>
+                  :
+                  <LoginWrapper>
+                    <Login />
+                  </LoginWrapper>
+                }
+              </div>
+            )
+          }}
+        />
 
-        <Route 
+        <Route
           path='/admin/posts/:view'
           exact={true}
           render={props => {
@@ -158,7 +177,7 @@ class App extends Component {
         />
       </Router>
     );
-  } 
+  }
 }
 
 const mapStateToProps = state => {
