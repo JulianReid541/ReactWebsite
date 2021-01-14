@@ -53,6 +53,20 @@ const API = {
         .then(res => {
             success(res);
         })
+    },
+    getSitePosts: (skip, success) => {
+        axios.get(`${host}/api/Posts`, {
+            params: {
+                filter: {
+                    skip: skip,
+                    limit: 10,
+                    include: 'PostImage'
+                }
+            }
+        })
+        .then(res => {
+            success(res);
+        })
     }
 }
 

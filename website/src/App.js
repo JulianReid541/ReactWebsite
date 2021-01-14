@@ -13,6 +13,8 @@ import Team from './components/Common/Team';
 import AdminWrapper from './components/AdminWrapper';
 import Login from './components/Pages/Login';
 import LoginWrapper from './components/LoginWrapper';
+import Blog from './components/Pages/Blog';
+import Single from './components/Pages/Single';
 
 //Admin Pages
 import Dashboard from './components/Pages/Admin/Dashboard';
@@ -159,6 +161,23 @@ class App extends Component {
 
         <Route path="/team" component={Team} />
 
+        <Route path="/blog"
+          exact={true}
+          render={props => (
+            <PageWrapper>
+              <Blog {...props} />
+            </PageWrapper>
+
+          )}
+        />
+        <Route path="/blog/:slug"
+          render={props => (
+            <PageWrapper>
+              <Single {...props} />
+            </PageWrapper>
+
+          )}
+        />        
         <Route path="/about"
           render={props => (
             <PageWrapper>
